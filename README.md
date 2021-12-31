@@ -37,6 +37,7 @@ admin:
 ```
 # 演示网站
 [http://tioo.top:99/](http://tioo.top:99/)
-账号: svnadmin
-密码: 123456
+
+账号: `svnadmin`
+密码: `123456`
 
