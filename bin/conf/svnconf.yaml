@@ -1,0 +1,9 @@
+server:
+  listen: 0.0.0.0:88
+  svnAuthzPath: "conf/authz"
+  svnPasswdPath: conf/passwd
+web:
+  title: "svn网页版配置"
+admin:
+  user: svnadmin
+  passwd: 123456

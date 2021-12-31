@@ -1,0 +1,85 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    background-color: #819ddb;
+  }
+  
+  /* 头部样式 */
+  .header {
+    background-color: #f1f1f1;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* 导航条 */
+  .topnav {
+    overflow: hidden;
+    background-color: #333;
+  }
+   
+  /* 导航链接 */
+  .topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 18px 16px;
+    text-decoration: none;
+  }
+   
+  /* 链接 - 修改颜色 */
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  /* 选中 */
+  .choose{
+    background-color: rgb(165, 16, 16);
+    color: black;
+  }
+  /* 提交按钮 */
+  input[type=submit]{
+    display: inline-block;
+    padding: 2px 15px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;   
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #312f2f;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 5px #999;  
+  }
+  input[type=submit]:hover{
+    background-color: #3e8e41;
+  }
+  input[type=submit]:active{
+    background-color: #3e8e41;
+    box-shadow: 0 2px #666;
+    transform: translateY(2px);
+  }
+  .info-text{
+    padding: 20px;
+    text-align:center
+  }
+  textarea{
+    color:#3605bd;
+    font-size:20px;
+    width: 1000px;
+    height: 650Px;
+    padding: 15px;
+    background-color: rgb(211, 211, 144);
+    box-shadow: 15px 15px rgb(141, 137, 137);
+    border-radius: 25px;
+  }
+  p {
+    text-align:center;
+    padding: 0px;
+  }
+

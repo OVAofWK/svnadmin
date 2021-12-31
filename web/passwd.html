@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{.title}}</title>
+    <link rel="stylesheet" type="text/css" href="/css/admin.css">
+    <script src="/js/admin.js"></script>
+</head>
+<body>
+    <form name="myForm" action="/admin/passwd" onsubmit="return sumbitSure()" method="post">    
+        
+        <div class="topnav">
+          <a href="/admin/groups">配置用户组</a>
+          <a href="/admin/path">配置文件路径权限</a>
+          <a class="choose" href="/admin/passwd">配置用户和密码</a>
+          <p><input type="submit" value="提交修改"></p>
+        </div>
+        <div class="info-text">
+            <textarea name="info">{{ .info }}</textarea>
+        </div>
+    </form>
+</body>

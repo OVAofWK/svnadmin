@@ -1,0 +1,54 @@
+
+input[type=user] {
+    padding: 8px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    text-align:center;
+    border-radius:10px;
+}
+
+input[type=password] {
+    padding: 8px 10px;
+    margin: 8px 0px;
+    box-sizing: border-box;
+    text-align:center;
+    border-radius:10px;
+}
+
+input[type=submit]{
+    display: inline-block;
+    padding: 8px 25px;
+    font-size: 18px;
+    cursor: pointer;
+    text-align: center;   
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 5px #999;
+}
+input[type=submit]:hover{
+    background-color: #3e8e41;
+}
+input[type=submit]:active{
+    background-color: #3e8e41;
+    box-shadow: 0 2px #666;
+    transform: translateY(2px);
+}
+p{
+    text-align:center;
+}
+.login-div {
+    margin: auto;
+    width:500px;
+	height:300px;
+	background-color:rgb(255, 255, 255);
+    border-radius:25px;
+	box-shadow: 10px 10px 5px #888888;
+}
+
+body{
+    background-color: #819ddb;
+}

@@ -1,0 +1,13 @@
+[groups]
+# 超管
+superuser = abc,root
+# 后端
+Server = server1,server2,server3
+# 后端[]
+[progarm_svr:/]
+@superuser = rw
+server2 = rw
+
+[progarm_svr:/Program/test/testdir]
+@superuser = rw 
+server1 = r
