@@ -1,5 +1,5 @@
 server:
-  listen: 0.0.0.0:88
+  listen: "0.0.0.0:40"
   svnAuthzPath: "conf/authz"
   svnPasswdPath: conf/passwd
 web:

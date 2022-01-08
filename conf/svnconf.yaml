@@ -7,5 +7,5 @@ web:
 admin:
   user: svnadmin
   passwd: 123456
-  useLog: true
+  useLog: false
   logPath: svnadmin.log

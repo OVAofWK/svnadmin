@@ -3,7 +3,6 @@ package ini
 import (
 	"fmt"
 	"io/ioutil"
-	"os"
 
 	"gopkg.in/yaml.v2"
 )
@@ -38,18 +37,4 @@ func ReadConfYaml(confPath string) Config {
 		panic(err)
 	}
 	return config
-}
-func isAxist(path string) bool {
-	_, err := os.Stat(path)
-	if err != nil {
-		if os.IsExist(err) {
-			return true
-		}
-		if os.IsNotExist(err) {
-			return false
-		}
-		fmt.Println(err)
-		return false
-	}
-	return true
 }

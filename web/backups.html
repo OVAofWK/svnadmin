@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{.title}}</title>
+    <link rel="stylesheet" type="text/css" href="/css/admin.css">
+    <link rel="stylesheet" type="text/css" href="/css/backups.css">
+    <script src="/js/admin.js"></script>
+</head>
+<body> 
+    <form name="myForm" action="/admin/groups" onsubmit="return sumbitSure()" method="post">            
+        <ul>
+            <li><a href="/admin/groups">配置用户组</a></li>
+            <li><a href="/admin/path">配置文件路径权限</a></li>
+            <li><a href="/admin/passwd">配置用户和密码</a></li>
+            <div class="dropdown">
+              <a href="#" class="dropbtn">查看配置备份</a>
+              <div class="dropdown-content">
+                {{.backupsFileList}}
+              </div>
+            </div>
+          </ul>
+        <br>
+        <div class="list-backups">
+            <div style="height:650px;width:170px;float:left;">
+                <ul>
+
+                </ul>
+            </div>
+            <p>{{.fileName}}</p>
+            <div>                        
+                <textarea name="info">{{.info}}</textarea>
+            </div>
+        </div>
+   
+</body>
+</html>

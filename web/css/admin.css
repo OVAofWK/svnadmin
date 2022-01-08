@@ -39,7 +39,6 @@
   /* 选中 */
   .choose{
     background-color: rgb(165, 16, 16);
-    color: black;
   }
   /* 提交按钮 */
   input[type=submit]{
@@ -51,7 +50,7 @@
     text-decoration: none;
     outline: none;
     color: #fff;
-    background-color: #312f2f;
+    background-color: #aa2424;
     border: none;
     border-radius: 15px;
     box-shadow: 0 5px #999;  
@@ -64,10 +63,11 @@
     box-shadow: 0 2px #666;
     transform: translateY(2px);
   }
+  /* 配置信息框 */
   .info-text{
-    padding: 20px;
     text-align:center
   }
+
   textarea{
     color:#3605bd;
     font-size:20px;
@@ -78,6 +78,7 @@
     box-shadow: 15px 15px rgb(141, 137, 137);
     border-radius: 25px;
   }
+
   p {
     text-align:center;
     padding: 0px;

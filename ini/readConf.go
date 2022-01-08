@@ -2,6 +2,7 @@ package ini
 
 import (
 	"bufio"
+	"io/ioutil"
 	"os"
 	"strings"
 )
@@ -45,8 +46,8 @@ func ReadAuthz(file string, conf string) string {
 
 }
 
-//读取passwd需求配置
-func ReadPasswd(file string) string {
+//读取文件内容
+func ReadFile(file string) string {
 	f, err := os.Open(file)
 	Try(err)
 	defer f.Close()
@@ -70,8 +71,19 @@ func ReadConf(CONFIG Config, conf string) string {
 	if conf == "groups" || conf == "path" {
 		info = ReadAuthz(CONFIG.Server.SvnAuthzPath, conf)
 	} else if conf == "passwd" {
-		info = ReadPasswd(CONFIG.Server.SvnPasswdPath)
+		info = ReadFile(CONFIG.Server.SvnPasswdPath)
 	}
 
 	return info
+}
+
+func GetBackupsFileList() string {
+	var fileList string
+	fileInfoList, err := ioutil.ReadDir("backups")
+	Try(err)
+	for i := len(fileInfoList) - 1; i >= 0; i-- {
+		fileList = fileList + "<a href=\"/admin/backups/" + fileInfoList[i].Name() + "\">" + fileInfoList[i].Name() + "</a>\n"
+	}
+
+	return fileList
 }

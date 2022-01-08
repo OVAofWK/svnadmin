@@ -34,7 +34,6 @@ func NewWeb() *gin.Engine {
 		gin.DefaultWriter = io.MultiWriter(f)
 
 		r.Use(gin.Recovery())
-		// gin.DisableConsoleColor()
 		r.Use(gin.LoggerWithFormatter(func(param gin.LogFormatterParams) string {
 			return fmt.Sprintf("%s - [%s] \"%s %s %s %d %s \"%s\" %s\"\n",
 				param.ClientIP,
@@ -83,7 +82,8 @@ func Getconf(c *gin.Context) {
 	c.Writer.WriteHeader(200)
 	adminHtml, _ := web.Asset(path)
 	// 将html中的{{}}内的信息替换为变量内容
-	html := Renderer(adminHtml, H{"title": CONFIG.Web.Title, "info": info})
+	backupFileList := ini.GetBackupsFileList()
+	html := Renderer(adminHtml, H{"title": CONFIG.Web.Title, "info": info, "backupsFileList": backupFileList})
 	c.Writer.Write(html)
 }
 
@@ -100,6 +100,17 @@ func Postconf(c *gin.Context) {
 		c.String(http.StatusOK, fmt.Sprint(err))
 	}
 
+}
+
+func GetBackups(c *gin.Context) {
+	param2 := c.Param("param_2")
+	info := ini.ReadFile("backups/" + param2)
+	path := "web/backups.html"
+	c.Writer.WriteHeader(200)
+	adminHtml, _ := web.Asset(path)
+	backupFileList := ini.GetBackupsFileList()
+	html := Renderer(adminHtml, H{"title": CONFIG.Web.Title, "info": info, "backupsFileList": backupFileList, "fileName": param2})
+	c.Writer.Write(html)
 }
 
 // 自定义渲染HTML模板
@@ -136,6 +147,7 @@ func Route(r *gin.Engine) *gin.Engine {
 	{
 		admin.GET("/:param_1/", Getconf)
 		admin.POST("/:param_1/", Postconf)
+		admin.GET("/backups/:param_2/", GetBackups)
 	}
 	return r
 }
@@ -146,6 +158,7 @@ func main() {
 	}
 	r := NewWeb()
 	r = Route(r)
+	fmt.Println(CONFIG.Server.Listen)
 	r.Run(CONFIG.Server.Listen)
 
 }

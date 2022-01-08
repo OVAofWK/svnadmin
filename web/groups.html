@@ -6,22 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{.title}}</title>
     <link rel="stylesheet" type="text/css" href="/css/admin.css">
+    <link rel="stylesheet" type="text/css" href="/css/backups.css">
     <script src="/js/admin.js"></script>
 </head>
 <body> 
-    <form name="myForm" action="/admin/groups" onsubmit="return sumbitSure()" method="post">    
+    <form name="myForm" action="/admin/groups" onsubmit="return sumbitSure()" method="post">            
+        <ul>
+            <li><a class="choose" href="/admin/groups">配置用户组</a></li>
+            <li><a href="/admin/path">配置文件路径权限</a></li>
+            <li><a href="/admin/passwd">配置用户和密码</a></li>            
+            <div class="dropdown">
+              <a href="#" class="dropbtn">查看配置备份</a>
+              <div class="dropdown-content">
+                {{.backupsFileList}}
+              </div>
+            </div>
+        </ul>
         
-        <div class="topnav">
-          <a class="choose" href="/admin/groups">配置用户组</a>
-          <a href="/admin/path">配置文件路径权限</a>
-          <a href="/admin/passwd">配置用户和密码</a>
-          <p><input type="submit" value="提交修改"></p>
-        </div>
         <p class="hint">权限配置是根据中括号[]进行判断的，如果在用户组配置中有额外插入中括号，该中括号往后内容会识别为文件路径权限，
             <br>如果在文件路径配置中第一个中括号前有内容，该括号之前的内容会被识别为用户组配置</p>
-    
+        <p ><input type="submit" value="提交修改"></p>
         <div class="info-text">        
             <textarea name="info">{{.info}}</textarea>
-        </div>
-   
+        </div>   
 </body>
