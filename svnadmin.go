@@ -160,5 +160,4 @@ func main() {
 	r = Route(r)
 	fmt.Println(CONFIG.Server.Listen)
 	r.Run(CONFIG.Server.Listen)
-
 }
